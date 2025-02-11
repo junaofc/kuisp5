@@ -1,0 +1,92 @@
+* {
+    font-family: 'Poppins', Sans-Serif;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #222;
+}
+
+/* Pastikan kontainer quiz benar-benar di tengah */
+#quiz-container, #start-screen, #result-screen {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    color: #fff;
+    font-weight: 400;
+}
+
+/* Tombol jawaban agar sama rata dan pas */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    padding: 15px;
+    font-size: 18px;
+    width: 100%; /* Lebar penuh agar rata */
+    max-width: 300px; /* Batas lebar */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    text-align: center;
+    margin: 0 auto; /* Pusatkan tombol */
+}
+
+.btn {
+    margin-top: 0.8rem;
+    display: inline-block;
+    padding: 0.6rem 1.3rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: blue;
+    border-radius: 1.4px;
+}
+
+/* Overlay benar & salah */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    z-index: 999;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* Untuk jawaban benar */
+.jawabanbenar {
+    background: rgba(0, 128, 0, 0.7);
+}
+
+/* Untuk jawaban salah */
+.jawabansalah {
+    background: rgba(128, 0, 0, 0.7);
+}

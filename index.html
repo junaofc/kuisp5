@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Layar Awal -->
+    <div id="start-screen">
+        <h1>Game Quiz</h1>
+        <input type="text" id="player-name" placeholder="Masukkan Nama">
+        <button class="btn" id="start-btn">Mulai</button>
+    </div>
+
+    <!-- Kontainer Quiz -->
+    <div id="quiz-container" style="display: none;">
+        <h2 id="question">Pertanyaan akan muncul di sini</h2>
+        <div class="options">
+            <button class="option" onclick="checkAnswer(0)"></button>
+            <button class="option" onclick="checkAnswer(1)"></button>
+            <button class="option" onclick="checkAnswer(2)"></button>
+            <button class="option" onclick="checkAnswer(3)"></button>
+        </div>
+    </div>
+
+    <!-- Layar Hasil -->
+    <div id="result-screen" style="display: none;">
+        <h2 id="result-text"></h2>
+        <button class="btn" onclick="restartQuiz()">Ulangi</button>
+    </div>
+
+    <!-- Overlay Benar & Salah (Awalnya hidden) -->
+    <div class="overlay jawabansalah">Why u are soo STUPIDZ</div>
+    <div class="overlay jawabanbenar">HORE kamu benar!</div>
+
+    <script src="script.js"></script>
+</body> 
+</html>
