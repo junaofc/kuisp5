@@ -17,76 +17,167 @@ body {
     background-color: #222;
 }
 
-/* Pastikan kontainer quiz benar-benar di tengah */
-#quiz-container, #start-screen, #result-screen {
-    background: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    color: #fff;
-    font-weight: 400;
-}
-
-/* Tombol jawaban agar sama rata dan pas */
-.options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.option {
-    padding: 15px;
-    font-size: 18px;
-    width: 100%; /* Lebar penuh agar rata */
-    max-width: 300px; /* Batas lebar */
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    background: #333;
-    color: white;
-    text-align: center;
-    margin: 0 auto; /* Pusatkan tombol */
-}
-
-.btn {
-    margin-top: 0.8rem;
-    display: inline-block;
-    padding: 0.6rem 1.3rem;
-    font-size: 1rem;
-    color: #fff;
-    background-color: blue;
-    border-radius: 1.4px;
-}
-
-/* Overlay benar & salah */
-.overlay {
-    position: fixed;
+/* Hero Section */
+#hero-section {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background: url(img/foto.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
-    display: none;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
-    font-weight: bold;
+    text-align: center;
     color: white;
-    z-index: 999;
-    opacity: 0.9;
+    padding: 20px;
+}
+
+/* Judul besar */
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Subjudul */
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 10px 0 20px;
+}
+
+/* Tombol Masuk */
+.hero-button {
+    font-size: 2rem;
+    padding: 15px 30px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: lightgray;
+}
+
+/* Responsif */
+@media (max-width: 1024px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 65%;
+    }
+}
+
+/* Layar Awal */
+#start-screen {
     text-align: center;
 }
 
-/* Untuk jawaban benar */
-.jawabanbenar {
-    background: rgba(0, 128, 0, 0.7);
+#player-name {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 1rem;
 }
 
-/* Untuk jawaban salah */
-.jawabansalah {
-    background: rgba(128, 0, 0, 0.7);
+.btn {
+    margin-top: 10px;
+    padding: 1rem 3rem;
+    font-size: 1.4rem
+    display: inline-block;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Pastikan kontainer quiz benar-benar di tengah */  
+#quiz-container, #start-screen, #result-screen {  
+    background: #1a1a1a;  
+    padding: 20px;  
+    border-radius: 10px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  
+    text-align: center;  
+    width: 90%;  
+    max-width: 400px;  
+    color: #fff;  
+    font-weight: 400;  
+} 
+  
+/* Tombol jawaban agar sama rata dan pas */  
+.options {  
+    display: flex;  
+    flex-direction: column;  
+    gap: 10px;  
+    margin-top: 20px;  
+}  
+  
+.option {  
+    padding: 15px;  
+    font-size: 18px;  
+    width: 100%;  
+    max-width: 300px;
+    border: none;  
+    cursor: pointer;  
+    border-radius: 5px;  
+    background: #333;  
+    color: white;  
+    text-align: center;  
+    margin: 0 auto;
+}  
+  
+.btn {  
+    margin-top: 0.8rem;  
+    display: inline-block;  
+    padding: 0.6rem 1.3rem;  
+    font-size: 1rem;  
+    color: #fff;  
+    background-color: blue;  
+    border-radius: 1.4px;  
+}  
+  
+/* Overlay benar & salah */  
+.overlay {  
+    position: fixed;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    display: flex;  
+    display: none;  
+    align-items: center;  
+    justify-content: center;  
+    font-size: 50px;  
+    font-weight: bold;  
+    color: white;  
+    z-index: 999;  
+    opacity: 0.9;  
+    text-align: center;  
+}  
+  
+/* Untuk jawaban benar */  
+.jawabanbenar {  
+    background: rgba(0, 128, 0, 0.7);  
+}  
+  
+/* Untuk jawaban salah */  
+.jawabansalah {  
+    background: rgba(128, 0, 0, 0.7);  
 }

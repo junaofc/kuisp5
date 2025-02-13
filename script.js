@@ -31,7 +31,7 @@ function loadQuestion() {
     if (currentQuestion >= questions.length) {
         document.getElementById("quiz-container").style.display = "none";
         document.getElementById("result-screen").style.display = "block";
-        document.getElementById("result-text").textContent = `Skor Anda: ${score} dari 10`;
+        document.getElementById("result-text").textContent = `Skor Anda: ${score} dari ${questions.length}`;
         return;
     }
 
