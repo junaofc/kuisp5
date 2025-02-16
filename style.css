@@ -105,11 +105,11 @@ body {
     font-weight: bold;
     background: white;
     color: black;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
-    padding: 10px;
+    padding: 9px;
 }
 
 /* Hover Efek */
@@ -145,11 +145,23 @@ body {
 /* Responsive: HP Full Lebar */
 @media screen and (max-width: 768px) {
     #music-box {
-        /* width: calc(100% - 20px); */
+        width: calc(100% - 20px);
         left: 10px;
         right: 10px;
         transform: none;
         border-radius: 10px;
+    }
+    #music-buttons button {
+        flex: 1;
+        font-size: 10px;
+        font-weight: bold;
+        background: white;
+        color: black;
+        border: 1px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+        padding: 6px;
     }
     #music-buttons {
         flex-direction: row;
