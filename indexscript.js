@@ -1,7 +1,88 @@
+// Fungsi Loading Aset Website
+document.addEventListener("DOMContentLoaded", function () {
+    const enterButton = document.getElementById("enter-button");
+    enterButton.disabled = true;
+    enterButton.textContent = "Memuat 0%";
+
+    let progress = 0;
+    let totalAssets = 0;
+    let loadedAssets = 0;
+
+    // Cek semua gambar di halaman
+    const images = document.images;
+    totalAssets += images.length;
+
+    // Cek semua audio & video
+    const mediaFiles = document.querySelectorAll('audio, video');
+    totalAssets += mediaFiles.length;
+
+    console.log(`🔍 Total Aset yang Dimuat: ${totalAssets} (Gambar: ${images.length}, Media: ${mediaFiles.length})`);
+
+    // Fungsi untuk update loading
+    function updateLoading() {
+        progress = Math.round((loadedAssets / totalAssets) * 100);
+        enterButton.textContent = `Memuat ${progress}%`;
+
+        if (progress >= 100) {
+            enterButton.textContent = "Masuk";
+            enterButton.classList.add("enabled");
+            enterButton.disabled = false;
+            console.log("✅ Semua aset berhasil dimuat!");
+        }
+    }
+
+    // **Cek Gambar**
+    for (let img of images) {
+        if (img.complete) {
+            loadedAssets++;
+            console.log(`📷 Gambar termuat: ${img.src}`);
+            updateLoading();
+        } else {
+            img.addEventListener("load", function () {
+                loadedAssets++;
+                console.log(`📷 Gambar termuat: ${img.src}`);
+                updateLoading();
+            });
+            img.addEventListener("error", function () {
+                loadedAssets++;
+                console.warn(`⚠️ Gambar gagal dimuat: ${img.src}`);
+                updateLoading();
+            });
+        }
+    }
+
+    // **Cek Audio & Video**
+    for (let media of mediaFiles) {
+        media.addEventListener("loadeddata", function () {
+            loadedAssets++;
+            console.log(`🎵 Media termuat: ${media.src}`);
+            updateLoading();
+        });
+
+        media.addEventListener("error", function () {
+            loadedAssets++;
+            console.warn(`⚠️ Media gagal dimuat: ${media.src}`);
+            updateLoading();
+        });
+    }
+
+    // **Pastikan semua aset lain juga termuat**
+    window.onload = function () {
+        loadedAssets = totalAssets;
+        updateLoading();
+    };
+});
+
+
+// Fungsi Utama Website
 document.addEventListener("DOMContentLoaded", function () {
     const songs = [
+        { title: "I Always Wanted a Brother - Mufasa", src: "song/ialwayswantedabrother.mp3" },
+        { title: "Laskar Pelangi - Nidji", src: "song/laskarpelangi.mp3" },
         { title: "Better When I'm Dancin'", src: "song/betterwhenimdancin.mp3" },
-        { title: "Strong - One Direction", src: "song/strong.mp3" }
+        { title: "Blue - Yung kai", src: "song/blue.mp3" },
+        { title: "Strong - One Direction", src: "song/strong.mp3" },
+        { title: "Secukupnya - Hindia", src: "song/secukupnya.mp3" }
     ];
 
     let currentSongIndex = 0;

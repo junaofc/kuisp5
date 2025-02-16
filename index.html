@@ -4,11 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary -->
+    <meta name="description" content="Website ini adalah quiz games sederhana buatan siswa SMPN13 Kota Bekasi.">
+    <meta name="keywords" content="quiz, quiz smpn13, smpn13 quiz games, quiz game, quiz game kelompok 5 kelas 8.6">
+    <meta name="author" content="NaturalSMP Team">
+    <title>Quiz Games - P5 Kelompok 5 8.6</title>
+    <!-- Icon -->
+    <head>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png"> <!-- Untuk iPhone/iPad -->
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <title>Online Games</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,8 +27,9 @@
     <div id="welcome-screen">
         <h1>Selamat Datang</h1>
         <p>Silahkan Tekan Tombol Masuk untuk memasuki ke inti web</p>
-        <button id="enter-button">Masuk</button>
+        <button id="enter-button" disabled>Memuat 1%</button>
     </div>
+
 
     <!-- Background Music -->
     <div id="music-container">
@@ -36,7 +47,7 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
-        <h1 class="hero-title">ONLINE GAMES</h1>
+        <h1 class="hero-title">QUIZ GAMES</h1>
         <p class="hero-subtitle">Sangat mengedukasi sekali KHUSUS <span class="underline bold">SDM TINGGI</span> !</p>
         <!-- <button class="hero-button" onclick="goToQuiz()">Masuk</button> -->
     </section>
@@ -53,47 +64,68 @@
         </ul>
     </section>
 
+    <!-- Box -->
     <section id="boxgame" class="box-game" style="margin-bottom: 4rem;">
         <h1>Semua <span class="rainbow">Quiz</span> Yang <span class="underline"
-                style="color: rgb(28, 255, 28);">Tersedia</span> Saat ini</h1>
+                style="color: rgb(19, 250, 19);">Tersedia</span> Saat ini</h1>
         <div class="box-list">
             <div class="box">
                 <h2>Matematika</h2>
-                <p>Ini adalah isi pertama dari kotak.</p>
-                <button class="btn">Klik Saya</button>
+                <p>Silahkan tekan <span class="underline bold">Masuk Quiz</span> untuk memulai quiz.</p>
+                <button class="btn">Masuk Quiz</button>
             </div>
             <div class="box">
                 <h2>IPA</h2>
-                <p>Ini adalah isi kedua dari kotak.</p>
+                <p>Silahkan tekan <span class="underline bold">Masuk Quiz</span> untuk memulai quiz.</p>
                 <button class="btn">Klik Saya</button>
             </div>
         </div>
     </section>
+
+    <!-- Tech -->
     <section id="tech" style="margin-bottom: 5rem;">
         <h2>Apa saja yang kami gunakan?</h2>
         <div class="tech-container">
-            <div class="tech">
-                <div class="progress-circle" style="--percentage: 29; --color: #E44D26;">
-                    <img src="img/html5png.png" alt="HTML">
+            <div class="tech-box">
+                <div class="tech-left">
+                    <div class="circle html">
+                        <img src="img/html.png" alt="HTML Logo">
+                    </div>
                 </div>
-                <span>29% HTML</span>
+                <div class="tech-right">
+                    <h3>HTML</h3>
+                    <p>HTML digunakan untuk membuat struktur dasar sebuah halaman web.</p>
+                </div>
             </div>
-            <div class="tech">
-                <div class="progress-circle" style="--percentage: 34; --color: #1572B6;">
-                    <img src="img/css.png" alt="CSS">
+        
+            <div class="tech-box">
+                <div class="tech-left">
+                    <div class="circle css">
+                        <img src="img/css.png" alt="CSS Logo">
+                    </div>
                 </div>
-                <span>34% CSS</span>
+                <div class="tech-right">
+                    <h3>CSS</h3>
+                    <p>CSS digunakan untuk mendesain tampilan halaman web agar lebih menarik.</p>
+                </div>
             </div>
-            <div class="tech">
-                <div class="progress-circle" style="--percentage: 36; --color: #F7DF1E;">
-                    <img src="img/js.png" alt="JavaScript">
+        
+            <div class="tech-box">
+                <div class="tech-left">
+                    <div class="circle js">
+                        <img src="img/js.png" alt="JavaScript Logo">
+                    </div>
                 </div>
-                <span>36% JavaScript</span>
+                <div class="tech-right">
+                    <h3>JavaScript</h3>
+                    <p>JavaScript digunakan untuk membuat halaman web lebih interaktif dan dinamis.</p>
+                </div>
             </div>
         </div>
-    </section>
+                
+    </section>        
     <footer>
-        <p>&copy; 2025 JunaDev, Kelompok 6 kelas 8.6. All rights reserved.</p>
+        <p>&copy; 2025 JunaDev, Kelompok 5 kelas 8.6. All rights reserved.</p>
         <small>Website ini dibuat untuk memberikan pembelajaran simpel untuk siswa, terkhusus siswa SMPN 13</small>
     </footer>
 
