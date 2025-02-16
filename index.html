@@ -1,23 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <title>Online Games</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-    <!-- Hero Section -->
-    <div id="hero-section">
-        <h1 class="hero-title">ONLINE GAMES</h1>
-        <p class="hero-subtitle">made by Kelompok 6 kelas 8.6</p>
-        <button class="hero-button" onclick="goToQuiz()">Masuk</button>
+<body>
+    <!-- Layar Selamat Datang -->
+    <div id="welcome-screen">
+        <h1>Selamat Datang</h1>
+        <p>Silahkan Tekan Tombol Masuk untuk memasuki ke inti web</p>
+        <button id="enter-button">Masuk</button>
     </div>
 
+    <!-- Background Music -->
+    <div id="music-container">
+        <button id="toggle-music-box">🎵 Musik</button>
+        <div id="music-box">
+            <p id="music-title">Tidak ada lagu diputar</p>
+            <div id="music-buttons">
+                <button id="prev-btn">⏮ Previous</button>
+                <button id="play-pause-btn">▶ Play</button>
+                <button id="next-btn">⏭ Next</button>
+            </div>
+        </div>
+    </div>    
+    
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <h1 class="hero-title">ONLINE GAMES</h1>
+        <p class="hero-subtitle">Sangat mengedukasi sekali KHUSUS <span class="underline bold">SDM TINGGI</span> !</p>
+        <!-- <button class="hero-button" onclick="goToQuiz()">Masuk</button> -->
+    </section>
+    <!-- About us -->
+    <section class="about">
+        <h2>Anggota Kelompok</h2>
+        <ul>
+            <li>1. Anomali</li>
+            <li>2. Anomali</li>
+            <li>3. Anomali</li>
+            <li>4. Anomali</li>
+            <li>5. Anomali</li>
+            <li>6. Anomali</li>
+        </ul>
+    </section>
+
+    <section id="boxgame" class="box-game" style="margin-bottom: 4rem;">
+        <h1>Semua <span class="rainbow">Quiz</span> Yang <span class="underline"
+                style="color: rgb(28, 255, 28);">Tersedia</span> Saat ini</h1>
+        <div class="box-list">
+            <div class="box">
+                <h2>Matematika</h2>
+                <p>Ini adalah isi pertama dari kotak.</p>
+                <button class="btn">Klik Saya</button>
+            </div>
+            <div class="box">
+                <h2>IPA</h2>
+                <p>Ini adalah isi kedua dari kotak.</p>
+                <button class="btn">Klik Saya</button>
+            </div>
+        </div>
+    </section>
+    <section id="tech" style="margin-bottom: 5rem;">
+        <h2>Apa saja yang kami gunakan?</h2>
+        <div class="tech-container">
+            <div class="tech">
+                <div class="progress-circle" style="--percentage: 70; --color: #E44D26;">
+                    <img src="img/html5png.png" alt="HTML">
+                </div>
+                <span>70% HTML</span>
+            </div>
+            <div class="tech">
+                <div class="progress-circle" style="--percentage: 20; --color: #1572B6;">
+                    <img src="img/css.png" alt="CSS">
+                </div>
+                <span>20% CSS</span>
+            </div>
+            <div class="tech">
+                <div class="progress-circle" style="--percentage: 10; --color: #F7DF1E;">
+                    <img src="img/js.png" alt="JavaScript">
+                </div>
+                <span>10% JavaScript</span>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 JunaDev, Kelompok 6 kelas 8.6. All rights reserved.</p>
+        <small>Website ini dibuat untuk memberikan pembelajaran simpel untuk siswa, terkhusus siswa SMPN 13</small>
+    </footer>
+
+    <script>
+        history.scrollRestoration = "manual";
+        window.scrollTo(0, 0);
+    </script>
+    <script src="indexscript.js"></script>
     <script>
         function goToQuiz() {
             window.location.href = "kuis.html";
@@ -25,4 +109,5 @@
     </script>
 
 </body>
+
 </html>

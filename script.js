@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("start-btn").addEventListener("click", function() {
+    document.getElementById("start-btn").addEventListener("click", function () {
         let playerName = document.getElementById("player-name").value.trim();
         if (playerName === "") {
             alert("Masukkan nama terlebih dahulu!");
@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
         loadQuestion();
     });
 });
+
+
 
 const questions = [
     { question: "Apa ibu kota Indonesia?", options: ["Jakarta", "Surabaya", "Medan", "Bandung"], answer: 0 },
