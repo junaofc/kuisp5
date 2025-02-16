@@ -4,23 +4,29 @@ document.addEventListener("DOMContentLoaded", function () {
     enterButton.disabled = true;
     enterButton.textContent = "Memuat 0%";
 
-    let progress = 0;
     let totalAssets = 0;
     let loadedAssets = 0;
 
-    // Cek semua gambar di halaman
+    // **Daftar Musik yang Harus Dimuat**
+    const songs = [
+        { title: "I Always Wanted a Brother - Mufasa", src: "song/ialwayswantedabrother.mp3" },
+        { title: "Laskar Pelangi - Nidji", src: "song/laskarpelangi.mp3" },
+        { title: "Better When I'm Dancin'", src: "song/betterwhenimdancin.mp3" },
+        { title: "Blue - Yung Kai", src: "song/blue.mp3" },
+        { title: "Strong - One Direction", src: "song/strong.mp3" },
+        { title: "Secukupnya - Hindia", src: "song/secukupnya.mp3" }
+    ];
+
+    // **Hitung Total Aset**
     const images = document.images;
-    totalAssets += images.length;
+    const mediaFiles = document.querySelectorAll("audio, video");
 
-    // Cek semua audio & video
-    const mediaFiles = document.querySelectorAll('audio, video');
-    totalAssets += mediaFiles.length;
+    totalAssets += images.length + mediaFiles.length + songs.length;
+    console.log(`🔍 Total Aset: ${totalAssets} (Gambar: ${images.length}, Media: ${mediaFiles.length}, Lagu: ${songs.length})`);
 
-    console.log(`🔍 Total Aset yang Dimuat: ${totalAssets} (Gambar: ${images.length}, Media: ${mediaFiles.length})`);
-
-    // Fungsi untuk update loading
+    // **Fungsi Update Loading**
     function updateLoading() {
-        progress = Math.round((loadedAssets / totalAssets) * 100);
+        let progress = Math.round((loadedAssets / totalAssets) * 100);
         enterButton.textContent = `Memuat ${progress}%`;
 
         if (progress >= 100) {
@@ -31,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // **Cek Gambar**
+    // **Preload Gambar**
     for (let img of images) {
         if (img.complete) {
             loadedAssets++;
@@ -51,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // **Cek Audio & Video**
+    // **Preload Audio & Video**
     for (let media of mediaFiles) {
         media.addEventListener("loadeddata", function () {
             loadedAssets++;
@@ -66,13 +72,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // **Pastikan semua aset lain juga termuat**
+    // **Preload Lagu Secara Paksa**
+    songs.forEach(song => {
+        let audio = new Audio();
+        audio.src = song.src;
+
+        audio.addEventListener("canplaythrough", function () {
+            console.log(`🎶 Lagu termuat: ${song.title}`);
+            loadedAssets++;
+            updateLoading();
+        }, { once: true });
+
+        audio.addEventListener("error", function () {
+            console.warn(`⚠️ Lagu gagal dimuat: ${song.title}`);
+            loadedAssets++;
+            updateLoading();
+        });
+    });
+
+    // **Pastikan Semua Aset Lain Juga Dimuat**
     window.onload = function () {
         loadedAssets = totalAssets;
         updateLoading();
     };
 });
-
 
 // Fungsi Utama Website
 document.addEventListener("DOMContentLoaded", function () {
