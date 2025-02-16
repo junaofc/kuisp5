@@ -1,4 +1,5 @@
 // Fungsi Loading Aset Website
+// Fungsi Loading Aset Website
 document.addEventListener("DOMContentLoaded", function () {
     const enterButton = document.getElementById("enter-button");
     enterButton.disabled = true;
@@ -6,8 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let totalAssets = 0;
     let loadedAssets = 0;
+    let isAllLoaded = false; // Cegah multiple log "✅ Semua aset berhasil dimuat!"
 
-    // **Daftar Musik yang Harus Dimuat**
+    // **Daftar Lagu yang Harus Dimuat**
     const songs = [
         { title: "I Always Wanted a Brother - Mufasa", src: "song/ialwayswantedabrother.mp3" },
         { title: "Laskar Pelangi - Nidji", src: "song/laskarpelangi.mp3" },
@@ -21,15 +23,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const images = document.images;
     const mediaFiles = document.querySelectorAll("audio, video");
 
-    totalAssets += images.length + mediaFiles.length + songs.length;
+    totalAssets = images.length + mediaFiles.length + songs.length;
     console.log(`🔍 Total Aset: ${totalAssets} (Gambar: ${images.length}, Media: ${mediaFiles.length}, Lagu: ${songs.length})`);
 
     // **Fungsi Update Loading**
     function updateLoading() {
+        if (loadedAssets > totalAssets) loadedAssets = totalAssets; // Batas atas agar tidak lebih dari 100%
+
         let progress = Math.round((loadedAssets / totalAssets) * 100);
+        if (progress > 100) progress = 100; // Mencegah lebih dari 100%
+        
         enterButton.textContent = `Memuat ${progress}%`;
 
-        if (progress >= 100) {
+        if (progress >= 100 && !isAllLoaded) {
+            isAllLoaded = true;
             enterButton.textContent = "Masuk";
             enterButton.classList.add("enabled");
             enterButton.disabled = false;
@@ -48,12 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 loadedAssets++;
                 console.log(`📷 Gambar termuat: ${img.src}`);
                 updateLoading();
-            });
+            }, { once: true });
+
             img.addEventListener("error", function () {
                 loadedAssets++;
                 console.warn(`⚠️ Gambar gagal dimuat: ${img.src}`);
                 updateLoading();
-            });
+            }, { once: true });
         }
     }
 
@@ -63,13 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
             loadedAssets++;
             console.log(`🎵 Media termuat: ${media.src}`);
             updateLoading();
-        });
+        }, { once: true });
 
         media.addEventListener("error", function () {
             loadedAssets++;
             console.warn(`⚠️ Media gagal dimuat: ${media.src}`);
             updateLoading();
-        });
+        }, { once: true });
     }
 
     // **Preload Lagu Secara Paksa**
@@ -78,23 +86,19 @@ document.addEventListener("DOMContentLoaded", function () {
         audio.src = song.src;
 
         audio.addEventListener("canplaythrough", function () {
-            console.log(`🎶 Lagu termuat: ${song.title}`);
             loadedAssets++;
+            console.log(`🎶 Lagu termuat: ${song.title}`);
             updateLoading();
         }, { once: true });
 
         audio.addEventListener("error", function () {
-            console.warn(`⚠️ Lagu gagal dimuat: ${song.title}`);
             loadedAssets++;
+            console.warn(`⚠️ Lagu gagal dimuat: ${song.title}`);
             updateLoading();
-        });
+        }, { once: true });
     });
 
-    // **Pastikan Semua Aset Lain Juga Dimuat**
-    window.onload = function () {
-        loadedAssets = totalAssets;
-        updateLoading();
-    };
+    // **Hapus window.onload karena bisa menggandakan loadedAssets**
 });
 
 // Fungsi Utama Website
@@ -103,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { title: "I Always Wanted a Brother - Mufasa", src: "song/ialwayswantedabrother.mp3" },
         { title: "Laskar Pelangi - Nidji", src: "song/laskarpelangi.mp3" },
         { title: "Better When I'm Dancin'", src: "song/betterwhenimdancin.mp3" },
-        { title: "Blue - Yung kai", src: "song/blue.mp3" },
+        { title: "Blue - Yung Kai", src: "song/blue.mp3" },
         { title: "Strong - One Direction", src: "song/strong.mp3" },
         { title: "Secukupnya - Hindia", src: "song/secukupnya.mp3" }
     ];
@@ -112,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let isPlaying = false;
     const audio = new Audio(songs[currentSongIndex].src);
 
-    // Elemen
     const enterButton = document.getElementById("enter-button");
     const welcomeScreen = document.getElementById("welcome-screen");
     const toggleMusicBox = document.getElementById("toggle-music-box");
@@ -122,78 +125,66 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = document.getElementById("next-btn");
     const prevBtn = document.getElementById("prev-btn");
 
-    // **Tombol Masuk**
     enterButton.addEventListener("click", function () {
         welcomeScreen.style.transition = "opacity 3s ease-out";
         welcomeScreen.style.opacity = "0";
 
         setTimeout(() => {
-            audio.play();
+            audio.play().catch(error => console.warn("Autoplay diblokir oleh browser", error));
             isPlaying = true;
             musicTitle.textContent = songs[currentSongIndex].title;
             playPauseBtn.textContent = "⏸ Pause";
-
-            // Munculkan music box
             musicBox.classList.add("show");
-
-        }, 200); // Musik mulai setelah 200ms
+        }, 200);
 
         setTimeout(() => {
             welcomeScreen.style.display = "none";
         }, 3000);
     });
 
-    // **Toggle Music Box (Tombol 🎵)**
     toggleMusicBox.addEventListener("click", function () {
-        musicBox.classList.toggle("show"); // Toggle animasi
+        musicBox.classList.toggle("show");
     });
 
-    // **Play/Pause Musik**
     playPauseBtn.addEventListener("click", function () {
         if (isPlaying) {
             audio.pause();
             isPlaying = false;
             playPauseBtn.textContent = "▶ Lanjutkan";
-            playPauseBtn.classList.add("paused");
         } else {
-            audio.play();
+            audio.play().catch(error => console.warn("Gagal memulai musik", error));
             isPlaying = true;
             playPauseBtn.textContent = "⏸ Pause";
-            playPauseBtn.classList.remove("paused");
         }
     });
 
-    // **Next Song**
     nextBtn.addEventListener("click", function () {
         nextSong();
     });
 
-    // **Previous Song**
     prevBtn.addEventListener("click", function () {
         prevSong();
     });
 
-    // **Lanjut ke Lagu Berikutnya Saat Habis**
     audio.addEventListener("ended", function () {
         nextSong();
     });
 
     function nextSong() {
-        currentSongIndex = (currentSongIndex + 1) % songs.length; // Loop ke awal jika sudah di akhir
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
         playSong();
     }
 
     function prevSong() {
-        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length; // Loop ke akhir jika di awal
+        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
         playSong();
     }
 
     function playSong() {
         audio.src = songs[currentSongIndex].src;
         musicTitle.textContent = songs[currentSongIndex].title;
-        audio.play();
+        audio.play().catch(error => console.warn("Gagal memutar lagu", error));
         isPlaying = true;
         playPauseBtn.textContent = "⏸ Pause";
-        playPauseBtn.classList.remove("paused");
     }
 });
