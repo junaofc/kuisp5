@@ -478,6 +478,10 @@ body {
     background: #f7df1e;
 }
 
+.circle.github {
+    background: #ffffff;
+}
+
 
 /* Gambar dalam lingkaran */
 .circle img {
@@ -501,6 +505,7 @@ body {
     .tech-box {
         flex-direction: column;
         text-align: center;
+        width: 90%;
     }
 }
 
