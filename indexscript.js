@@ -15,8 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { title: "I Always Wanted a Brother - Mufasa", src: "song/ialwayswantedabrother.mp3" },
         { title: "Laskar Pelangi - Nidji", src: "song/laskarpelangi.mp3" },
         { title: "Better When I'm Dancin'", src: "song/betterwhenimdancin.mp3" },
-        { title: "Blue - Yung Kai", src: "song/blue.mp3" },
-        { title: "Strong - One Direction", src: "song/strong.mp3" }
+        { title: "Blue - Yung Kai", src: "song/blue.mp3" }
     ];
 
     let totalAssets = document.images.length + songs.length;
