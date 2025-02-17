@@ -14,16 +14,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const questions = [
-    { question: "Apa ibu kota Indonesia?", options: ["Jakarta", "Surabaya", "Medan", "Bandung"], answer: 0 },
-    { question: "Berapa hasil dari 5 + 3?", options: ["6", "8", "9", "7"], answer: 1 },
-    { question: "Siapa presiden pertama Indonesia?", options: ["Soekarno", "Soeharto", "Habibie", "Jokowi"], answer: 0 },
-    { question: "Berapakah 10 × 2?", options: ["20", "10", "15", "25"], answer: 0 },
-    { question: "Apa warna langit pada siang hari?", options: ["Merah", "Hijau", "Biru", "Kuning"], answer: 2 },
-    { question: "Siapa pencipta teori gravitasi?", options: ["Newton", "Einstein", "Galileo", "Tesla"], answer: 0 },
-    { question: "Gunung tertinggi di dunia?", options: ["Everest", "Merapi", "Kilimanjaro", "Elbrus"], answer: 0 },
-    { question: "Apa kepanjangan dari WWW?", options: ["World Wide Web", "Wild Wild West", "Windows Web Work", "Web World Wide"], answer: 0 },
-    { question: "Siapa penemu bola lampu?", options: ["Edison", "Tesla", "Newton", "Galileo"], answer: 0 },
-    { question: "Apa simbol kimia untuk air?", options: ["H2O", "O2", "CO2", "H2"], answer: 0 }
+    { 
+        question: "Slogan yang baik biasanya memiliki ciri-ciri berikut, kecuali", 
+        options: ["Singkat dan padat", "Mudah diingat", "Menggunakan bahasa yang rumit", "Menarik dan relevan dengan produk"], 
+        answer: 2 // C
+    },
+    { 
+        question: "Mengapa penting untuk memilih warna yang tepat dalam desain poster?", 
+        options: ["Agar poster terlihat cerah", "Untuk menambahkan biaya desain", "Warna tidak berpengaruh", "Warna yang tepat dapat mempengaruhi suasana dan menarik perhatian"], 
+        answer: 3 // D
+    },
+    { 
+        question: "Dalam pembuatan poster, elemen manakah yang berfungsi untuk menarik perhatian?", 
+        options: ["Gambar", "Alamat", "Tanggal", "Logo"], 
+        answer: 0 // A
+    },
+    { 
+        question: "Apa yang harus diperhatikan dalam pemilihan font untuk poster?", 
+        options: ["Font yang sulit dibaca", "Font yang terlalu kecil", "Font yang sesuai dengan tema dan mudah dibaca", "Font yang mirip dengan desain iklan"], 
+        answer: 2 // C
+    },
+    { 
+        question: "Slogan dari produk 'Pepsi' adalah:", 
+        options: ["Live for now", "Just Do It", "Coke is it", "Taste the feeling"], 
+        answer: 0 // A
+    },
+    { 
+        question: "Dalam iklan, apa yang biasanya menciptakan kesan pertama yang kuat?", 
+        options: ["Visual dan headline", "Harga", "Testimoni", "Informasi produk"], 
+        answer: 0 // A
+    },
+    { 
+        question: "Apa yang dimaksud dengan 'branding' dalam konteks iklan?", 
+        options: ["Menjual produk dengan harga rendah", "Membuat iklan dalam berbagai media", "Mengembangkan strategi pemasaran jangka panjang untuk membangun citra merek", "Menciptakan logo baru"], 
+        answer: 2 // C
+    },
+    { 
+        question: "Apa yang harus dilakukan sebelum mulai mendesain poster?", 
+        options: ["Menentukan ukuran kertas", "Memahami tujuan dan audiens", "Memilih font yang paling berwarna", "Menentukan harga"], 
+        answer: 1 // B
+    },
+    { 
+        question: "Apa yang biasanya menjadi fokus utama dalam sebuah iklan televisi?", 
+        options: ["Musik latar", "Cerita yang menarik dan visual yang kuat", "Ukuran produk", "Harga produk"], 
+        answer: 1 // B
+    },
+    { 
+        question: "Apa yang penting dalam membuat slogan?", 
+        options: ["Panjang dan rumit", "Mudah diucapkan dan berima", "Tidak relevan dengan produk", "Menggunakan bahasa teknis"], 
+        answer: 1 // B
+    }
 ];
 
 let currentQuestion = 0;
