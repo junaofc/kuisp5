@@ -11,19 +11,57 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
 const questions = [
-    { question: "Apa ibu kota Indonesia?", options: ["Jakarta", "Surabaya", "Medan", "Bandung"], answer: 0 },
-    { question: "Berapa hasil dari 5 + 3?", options: ["6", "8", "9", "7"], answer: 1 },
-    { question: "Siapa presiden pertama Indonesia?", options: ["Soekarno", "Soeharto", "Habibie", "Jokowi"], answer: 0 },
-    { question: "Berapakah 10 × 2?", options: ["20", "10", "15", "25"], answer: 0 },
-    { question: "Apa warna langit pada siang hari?", options: ["Merah", "Hijau", "Biru", "Kuning"], answer: 2 },
-    { question: "Siapa pencipta teori gravitasi?", options: ["Newton", "Einstein", "Galileo", "Tesla"], answer: 0 },
-    { question: "Gunung tertinggi di dunia?", options: ["Everest", "Merapi", "Kilimanjaro", "Elbrus"], answer: 0 },
-    { question: "Apa kepanjangan dari WWW?", options: ["World Wide Web", "Wild Wild West", "Windows Web Work", "Web World Wide"], answer: 0 },
-    { question: "Siapa penemu bola lampu?", options: ["Edison", "Tesla", "Newton", "Galileo"], answer: 0 },
-    { question: "Apa simbol kimia untuk air?", options: ["H2O", "O2", "CO2", "H2"], answer: 0 }
+    { 
+        question: "Manakah yang merupakan alat yang digunakan untuk mengamati sel?", 
+        options: ["Mikroskop", "Stetoskop", "Mikrofon", "Teleskop"], 
+        answer: 0 // A
+    },
+    { 
+        question: "Siapakah pencipta Mikroskop?", 
+        options: ["Nikola Tesla", "Robert Hooke", "Yuri Gagarin", "Oppenheimer"], 
+        answer: 1 // C → B (diacak)
+    },
+    { 
+        question: "Mitokondria adalah sel yang berfungsi untuk?", 
+        options: ["Melindungi sel", "Membuat protein", "Sebagai tempat penyimpanan", "Memproduksi energi"], 
+        answer: 3 // B → D (diacak)
+    },
+    { 
+        question: "Proses pencernaan di mulut dilakukan dengan cara...", 
+        options: ["Mekanik dan Kimiawi", "Mekanik saja", "Kimiawi dan fisika", "Mekanik dan elektronik"], 
+        answer: 0 // A
+    },
+    { 
+        question: "Di ludah terdapat suatu enzim yang disebut?", 
+        options: ["Amilase/Ptialin", "Pepsin", "Canivus", "Maltosa"], 
+        answer: 0 // D → A (diacak)
+    },
+    { 
+        question: "Fungsi Sel Nefron adalah?", 
+        options: ["Penghasil lemak", "Membuat keringat", "Penghasil sel", "Pembuatan Urin"], 
+        answer: 3 // B → D (diacak)
+    },
+    { 
+        question: "Sebuah bandul melakukan 60 getaran dalam 1 menit. Berapa frekuensinya?", 
+        options: ["1 Hz", "2 Hz", "3 Hz", "5 Hz"], 
+        answer: 0 // C → A (diacak)
+    },
+    { 
+        question: "Jika panjang gelombang tali = 8m digerakkan dengan waktu 2 sekon. Berapa cepat rambat gelombangnya?", 
+        options: ["3 m/s", "4 m/s", "5 m/s", "7 m/s"], 
+        answer: 1 // A → B (diacak)
+    },
+    { 
+        question: "Bunyi yang dapat didengar manusia adalah?", 
+        options: ["Ultrasonik", "Audiosonik", "Infrasonik", "Semuanya benar"], 
+        answer: 1 // B
+    },
+    { 
+        question: "Seorang petualang berteriak keras di depan Goa sepanjang 3.000 m. Jika pantulan bunyi diterima 4 sekon, berapa cepat rambat bunyi dalam Goa?", 
+        options: ["750", "670", "500", "300"], 
+        answer: 0 // C → A (diacak)
+    }
 ];
 
 let currentQuestion = 0;
