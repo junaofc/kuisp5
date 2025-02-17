@@ -14,16 +14,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const questions = [
-    { question: "Apa ibu kota Indonesia?", options: ["Jakarta", "Surabaya", "Medan", "Bandung"], answer: 0 },
-    { question: "Berapa hasil dari 5 + 3?", options: ["6", "8", "9", "7"], answer: 1 },
-    { question: "Siapa presiden pertama Indonesia?", options: ["Soekarno", "Soeharto", "Habibie", "Jokowi"], answer: 0 },
-    { question: "Berapakah 10 × 2?", options: ["20", "10", "15", "25"], answer: 0 },
-    { question: "Apa warna langit pada siang hari?", options: ["Merah", "Hijau", "Biru", "Kuning"], answer: 2 },
-    { question: "Siapa pencipta teori gravitasi?", options: ["Newton", "Einstein", "Galileo", "Tesla"], answer: 0 },
-    { question: "Gunung tertinggi di dunia?", options: ["Everest", "Merapi", "Kilimanjaro", "Elbrus"], answer: 0 },
-    { question: "Apa kepanjangan dari WWW?", options: ["World Wide Web", "Wild Wild West", "Windows Web Work", "Web World Wide"], answer: 0 },
-    { question: "Siapa penemu bola lampu?", options: ["Edison", "Tesla", "Newton", "Galileo"], answer: 0 },
-    { question: "Apa simbol kimia untuk air?", options: ["H2O", "O2", "CO2", "H2"], answer: 0 }
+    { 
+        question: "Hasil dari 15² adalah...", 
+        options: ["215", "225", "235", "250"], 
+        answer: 1 // 225
+    },
+    { 
+        question: "Hasil dari (5x)² adalah...", 
+        options: ["10x²", "15x²", "25 • x²", "5x²"], 
+        answer: 2 // 25 • x²
+    },
+    { 
+        question: "Hasil dari 12⁷ × 12⁴ adalah...", 
+        options: ["12⁹", "12¹¹", "12¹²", "12¹⁰"], 
+        answer: 1 // 12¹¹
+    },
+    { 
+        question: "Hasil dari 3⁷ : 3⁴ adalah...", 
+        options: ["3²", "3³", "3⁵", "3⁴"], 
+        answer: 1 // 3³
+    },
+    { 
+        question: "Hasil dari √49 adalah...", 
+        options: ["6", "7", "8", "9"], 
+        answer: 1 // 7
+    },
+    { 
+        question: "Hasil dari √1.800 adalah...", 
+        options: ["30 √2", "40 √2", "35 √2", "25 √2"], 
+        answer: 0 // 30 √2
+    },
+    { 
+        question: "Hasil dari 1,54 × 10⁵ adalah...", 
+        options: ["1.540", "15.400", "154.000", "1.540.000"], 
+        answer: 2 // 154.000
+    },
+    { 
+        question: "Manakah yang termasuk dalam tripel Pythagoras?", 
+        options: ["6, 8, 10", "7, 24, 25", "5, 12, 14", "9, 15, 20"], 
+        answer: 1 // 7, 24, 25
+    },
+    { 
+        question: "Jika 2x + 5 = 19, berapa nilai x?", 
+        options: ["5", "6", "7", "8"], 
+        answer: 2 // 7
+    },
+    { 
+        question: "Jika 6x + 5 = 26 - x, berapa nilai x?", 
+        options: ["2", "3", "4", "5"], 
+        answer: 1 // 3
+    }
 ];
 
 let currentQuestion = 0;
