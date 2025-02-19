@@ -31,7 +31,9 @@
 
     <div id="result-screen" style="display: none;">
         <h2 id="result-text"></h2>
+        <button class="btn" onclick="PrevQuiz()">Quiz Sebelumnya</button>
         <button class="btn" onclick="restartQuiz()">Ulangi</button>
+        <button class="btn" onclick="NextQuiz()">Quiz Selanjutnya</button>
     </div>
 
     <!-- Overlay untuk Jawaban -->
@@ -39,5 +41,16 @@
     <div class="overlay jawabansalah">Salah!</div>
 
     <script src="scriptipa.js"></script>
+    <script>
+        function PrevQuiz() {
+            window.location.href = "indexmtk.html";
+        }
+        function NextQuiz() {
+            window.location.href = "indexbindo.html";
+        }
+        function BackHome() {
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>
