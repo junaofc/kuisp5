@@ -32,7 +32,7 @@
     <div id="result-screen" style="display: none;">
         <h2 id="result-text"></h2>
         <button class="btn" onclick="restartQuiz()">Ulangi</button>
-        <a class="btn" href"indexipa.html">Quiz Selanjutnya</a>
+        <a class="btn" id="next-btn">Quiz Selanjutnya</a>
     </div>
 
     <!-- Overlay untuk Jawaban -->
@@ -40,5 +40,21 @@
     <div class="overlay jawabansalah">Salah!</div>
 
     <script src="scriptmtk.js"></script>
+    <script>
+        document.getElementById("prev-btn").addEventListener("click", function() {
+            console.log("Pindah ke indexmtk.html");
+            window.location.href = "indexmtk.html";
+        });
+
+        document.getElementById("restart-btn").addEventListener("click", function() {
+            console.log("Restart Quiz");
+            location.reload();
+        });
+
+        document.getElementById("next-btn").addEventListener("click", function() {
+            console.log("Pindah ke indexbindo.html");
+            window.location.href = "quizipa.html";
+        });
+    </script>
 </body>
 </html>
