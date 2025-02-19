@@ -32,7 +32,7 @@
     <div id="result-screen" style="display: none;">
         <h2 id="result-text"></h2>
         <button class="btn" onclick="restartQuiz()">Ulangi</button>
-        <button class="btn" onclick="NextQuiz()">Quiz Selanjutnya</button>
+        <button class="btn" id="next-btn">Quiz Selanjutnya</button>
     </div>
 
     <!-- Overlay untuk Jawaban -->
@@ -41,15 +41,20 @@
 
     <script src="scriptbindo.js"></script>
     <script>
-        function PrevQuiz() {
+        document.getElementById("prev-btn").addEventListener("click", function() {
+            console.log("Pindah ke indexmtk.html");
             window.location.href = "indexmtk.html";
-        }
-        function NextQuiz() {
-            window.location.href = "indexipa.html";
-        }
-        function BackHome() {
-            window.location.href = "index.html";
-        }
+        });
+
+        document.getElementById("restart-btn").addEventListener("click", function() {
+            console.log("Restart Quiz");
+            location.reload();
+        });
+
+        document.getElementById("next-btn").addEventListener("click", function() {
+            console.log("Pindah ke indexbindo.html");
+            window.location.href = "quizipa.html";
+        });
     </script>
 </body>
 </html>
